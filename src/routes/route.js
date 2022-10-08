@@ -1,15 +1,13 @@
-const express = require('express');
-const router =express.Router()
-const {createUrl,getUrl}=require('../controllers/urlController')
+const express = require("express");
+const router = express.Router();
+const Urlcontroller = require("../controllers/urlController");
 
-router.post('/test-me', function(req,res){
-    res.send({msg:"this is first api"})
-})
+//---------------------API's---------------------//
 
-router.post('/url/shorten',createUrl)
-router.get('/:urlCode',getUrl)
+//-----------Create ShortUrl---------------------//
+router.post("/url/shorten", Urlcontroller.createUrl);
 
+//------------fetch the longUrl------------------//
+router.get("/:urlCode", Urlcontroller.getUrl);
 
-
-
-module.exports=router
+module.exports = router;
